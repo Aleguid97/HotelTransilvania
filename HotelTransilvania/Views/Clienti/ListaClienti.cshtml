@@ -1,0 +1,82 @@
+﻿@model IEnumerable<HotelTransilvania.Models.Clienti>
+
+@{
+    ViewBag.Title = "ListaClienti";
+}
+
+<h2>Lista Clienti</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary mt-3 mb-3" })
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodFisc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cognome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Citta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Provincia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cellulare)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodFisc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cognome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Citta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Provincia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cellulare)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-secondary btn-sm me-1" onclick="location.href='@Url.Action("Details", new { id = item.IdCliente })'">Details</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="location.href='@Url.Action("Delete", new { id = item.IdCliente })'">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
